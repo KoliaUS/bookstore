@@ -42,8 +42,21 @@ export default {
 
 <template>
   <div class="row">
-    <div class="col-3 pt-4 ps-4" v-for="book in books">
-      <PreviewBook :id="book.id" :author="book.author" :book_name="book.book_name" :description="book.description" :image="book.image"></PreviewBook>
+    <div class="col-3 pt-4 ps-4" v-for="book in books" :key="book.id">
+      <div class="card" style="width: 18rem;">
+        <img :src = "book.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{book.book_name}}</h5>
+          <p class="card-subtitle">{{book.author}}</p>
+          <router-link :to="`/book/${book.id}`" class="btn btn-primary">
+            Číst dále
+          </router-link>
+          <router-link :to="`/edit_book/${book.id}`" class="btn btn-warning">
+            Edit
+          </router-link>
+          <button @click="deletebook(book.id)" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>

@@ -3,7 +3,7 @@
     <div class="row justify-content-center mt-5">
       <div class="col-6 border p-3">
         <div class="mb-3">
-          <label class="form-label">Book name</label>
+          <label class="form-label">Book name edit</label>
           <input v-model="book.book_name" type="text" class="form-control">
         </div>
         <div class="mb-3">
@@ -26,10 +26,10 @@
 
 <script>
 export default {
-  name: "AddNewBook",
+  name: "EditBook",
   data() {
     return {
-      book:{
+      book: {
         book_name: null,
         author: null,
         description: null,
