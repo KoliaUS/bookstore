@@ -40,19 +40,14 @@ export default {
       }
     }
   },
-  async mounted(){
+  async mounted() {
     const id = this.$route.params.id;
     this.book = await this.getData(id)
   },
   methods: {
     async getData(id){
-      return {
-        id: id,
-        image: f,
-        book_name: Eugene,
-        author: ewgwe,
-        description: ewfweg
-      }
+      const res = await fetch(`http://localhost:3000/books/${id}`, {method: 'GET'});
+      return res.json();
     }
   }
 }

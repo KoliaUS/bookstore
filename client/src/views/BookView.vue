@@ -1,40 +1,36 @@
 <script>
 import PreviewBook from "../components/PreviewBook.vue";
+import Book from "../components/Book.vue";
 
 export default {
-  components: {PreviewBook},
+  components: {PreviewBook, Book},
   data() {
     return {
-      books:[
-        {
-          id:1,
-          author:"Karel Capek",
-          book_name: "RUR",
-          description: "sdsdkadjshdjshdashdasjdhs",
-          image: "https://www.knihydobrovsky.cz/thumbs/book-detail/mod_eshop/produkty/r/r-u-r-9788073900625.jpg"
-        },
-        {
-          id:2,
-          author:"Josef Capek",
-          book_name: "RUR",
-          description: "sdsdkadjshdjshdashdasjdhs",
-          image: "https://www.knihydobrovsky.cz/thumbs/book-detail/mod_eshop/produkty/r/r-u-r-9788073900625.jpg"
-        },
-        {
-          id:3,
-          author:"Josef Capek",
-          book_name: "R",
-          description: "sdsdkadjshdjshdashdasjdhs",
-          image: "https://www.knihydobrovsky.cz/thumbs/book-detail/mod_eshop/produkty/r/r-u-r-9788073900625.jpg"
-        },
-        {
-          id:4,
-          author:"Josef Capek",
-          book_name: "RfewfwefUR",
-          description: "sdsdkadjshdjshdashdasjdhs",
-          image: "https://www.knihydobrovsky.cz/thumbs/book-detail/mod_eshop/produkty/r/r-u-r-9788073900625.jpg"
+      books: []
+    }
+  },
+  async created() {
+    const res = await fetch('http://localhost:3000/books', {method: 'GET'});
+    console.log(res);
+    this.books = await res.json();
+  },
+  methods: {
+    async deletebook(id) {
+      try {
+        const result = confirm("Want to delete?");
+        if (result) {
+          const res = await fetch(`http://localhost:3000/books/${id}`, {method: 'DELETE'});
+          alert("Deleted!");
+          window.location.assign("http://localhost:3001");
+          return res.json();
         }
-      ]
+        else{
+          alert("Nothing was deleted!");
+          window.location.assign("http://localhost:3001");
+        }
+      } catch (e) {
+        alert(e);
+      }
     }
   }
 }
