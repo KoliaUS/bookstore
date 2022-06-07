@@ -4,7 +4,7 @@
         <div class="col-md-7">
           <div class="block">
             <div class="section-title">
-              <h2>About Us</h2>
+              <h2>About Us ID={{ book.book_name }}</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
             </div>
@@ -26,15 +26,32 @@
 </template>
 
 <script>
+
 export default {
   name: "Book",
   data() {
     return {
       book:{
+        id: null,
         book_name: null,
         author: null,
         description: null,
         image: null
+      }
+    }
+  },
+  async mounted(){
+    const id = this.$route.params.id;
+    this.book = await this.getData(id)
+  },
+  methods: {
+    async getData(id){
+      return {
+        id: id,
+        image: f,
+        book_name: Eugene,
+        author: ewgwe,
+        description: ewfweg
       }
     }
   }
