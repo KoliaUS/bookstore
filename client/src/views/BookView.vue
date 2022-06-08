@@ -23,8 +23,7 @@ export default {
           alert("Deleted!");
           window.location.assign("http://localhost:3001");
           return res.json();
-        }
-        else{
+        } else {
           alert("Nothing was deleted!");
           window.location.assign("http://localhost:3001");
         }
@@ -37,22 +36,26 @@ export default {
 </script>
 
 <template>
+  <div class="container mx-auto mt-4">
   <div class="row">
-    <div class="col-3 pt-4 ps-4" v-for="book in books" :key="book.id">
-      <div class="card" style="width: 18rem;">
-        <img :src = "book.image" class="card-img-top" alt="...">
+    <div class="col-md-3 pt-4" v-for="book in books" :key="book.id">
+      <div class="card text-center align-items-center" style="width: auto; height: auto;">
+        <img :src="book.image" class="card-img-top" style="width: 300px; height: 500px;" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{book.book_name}}</h5>
-          <p class="card-subtitle">{{book.author}}</p>
-          <router-link :to="`/book/${book.id}`" class="btn btn-primary">
-            Číst dále
+          <h5 class="card-title">{{ book.book_name }}</h5>
+          <p class="card-subtitle">{{ book.author }}</p>
+        </div>
+        <div class="mx-0 my-2 text-center card-footer">
+          <router-link :to="`/book/${book.id}`" class="btn btn-primary ms-0 me-1">
+            Více info
           </router-link>
-          <router-link :to="`/edit_book/${book.id}`" class="btn btn-warning">
+          <router-link :to="`/edit_book/${book.id}`" class="btn btn-warning mx-2">
             Edit
           </router-link>
-          <button @click="deletebook(book.id)" class="btn btn-danger">Delete</button>
+          <button @click="deletebook(book.id)" class="btn btn-danger ms-1 me-0">Delete</button>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>

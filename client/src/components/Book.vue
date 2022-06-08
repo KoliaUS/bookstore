@@ -1,27 +1,21 @@
 <template>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7">
-          <div class="block">
-            <div class="section-title">
-              <h2>About Us ID={{ book.book_name }}</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-                blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id </p>
-          </div>
-        </div><!-- .col-md-7 close -->
-        <div class="col-md-5">
-          <div class="block">
-            <img src="images/wrapper-img.png" alt="Img">
-          </div>
-        </div><!-- .col-md-5 close -->
+  <div class="position-relative overflow-hidden p-3 p-md-2 text-center bg-light vh-100" id="Idea">
+    <div class="row">
+      <div class="col-md-5 p-lg-5 mx-auto my-2">
+        <h1 class="display-4 fw-normal text-black m-lg-5" style=" text-shadow: 0 0 2px black;">{{book.book_name}}</h1>
+        <h3 class="" style=" text-shadow: 0 0 10px white;">Author: {{book.author}}</h3>
+        <p class="lead fw-normal text-black">{{book.description}} </p>
+
+
+      </div>
+      <div class="col-md-5 p-lg-5 mx-auto my-3">
+        <img :src="book.image" alt="photo" class="img-fluid shadow-4-strong"
+             style="border-radius: 10px 15px 15px 15px; box-shadow: 0 0 10px gray; height: 80vh;">
       </div>
     </div>
+  </div>
+
+
 
 </template>
 
