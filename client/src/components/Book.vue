@@ -25,7 +25,7 @@ export default {
   name: "Book",
   data() {
     return {
-      book:{
+      book:{ //object
         id: null,
         book_name: null,
         author: null,
@@ -34,13 +34,13 @@ export default {
       }
     }
   },
-  async mounted() {
-    const id = this.$route.params.id;
-    this.book = await this.getData(id)
+  async mounted() { //Po nasazeni komponenty
+    const id = this.$route.params.id; // id z url
+    this.book = await this.getData(id) //nahraje data z metody getData
   },
   methods: {
     async getData(id){
-      const res = await fetch(`http://localhost:3000/books/${id}`, {method: 'GET'});
+      const res = await fetch(`http://localhost:3000/books/${id}`, {method: 'GET'}); //get book with "id" from server
       return res.json();
     }
   }

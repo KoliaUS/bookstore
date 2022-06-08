@@ -1,7 +1,7 @@
 <template>
   <form>
-    <div class="row justify-content-center mt-5">
-      <div class="col-6 border p-3">
+    <div class="row justify-content-center mt-5 align-items-center" style="max-width: 1500px; margin: 0 auto 100px;padding: 45px;">
+      <div class="col-6 p-3" style=" box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);">
         <div class="mb-3">
           <label class="form-label">Book name edit</label>
           <input v-model="book.book_name" type="text" class="form-control">
@@ -18,7 +18,7 @@
           <label class="form-label">Image URL</label>
           <input v-model="book.image" type="text" class="form-control">
         </div>
-        <button @click="editData" type="button" class="btn btn-primary">Submit</button>
+        <button @click="editData" type="button" class="btn btn-primary float-end">Submit</button>
       </div>
     </div>
   </form>
