@@ -47,12 +47,10 @@ export default {
     async getData(id) {
       const res = (await fetch(`http://localhost:3000/books/${id}`, {method: 'GET'}));
       const data = await res.json();
-      console.log(data);
       this.book = data;
     },
     async editData(){
       try {
-        console.log(this.book);
         await fetch(`http://localhost:3000/books/${this.book.id}`,
             {
               method: 'PATCH',

@@ -45,7 +45,6 @@ export default {
   methods: {
     async send() {
       try {
-        console.log(this.book);
         await fetch('http://localhost:3000/books', //komunikace server
             {
               method: 'POST',

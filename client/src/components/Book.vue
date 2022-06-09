@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative overflow-hidden p-3 p-md-2 text-center bg-light vh-100" id="Idea">
+  <div class="position-relative overflow-hidden p-3 p-md-2 text-center bg-light vh-100">
     <div class="row">
       <div class="col-md-5 p-lg-5 mx-auto my-2">
         <h1 class="display-4 fw-normal text-black m-lg-5" style=" text-shadow: 0 0 2px black;">{{book.book_name}}</h1>

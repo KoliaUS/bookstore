@@ -10,21 +10,20 @@ export default {
   },
   async created() {
     const res = await fetch('http://localhost:3000/books', {method: 'GET'});
-    console.log(res);
     this.books = await res.json();
   },
   methods: {
     async deletebook(id) {
       try {
-        const result = confirm("Want to delete?");
+        const result = confirm("Want to remove this book?");
         if (result) {
           const res = await fetch(`http://localhost:3000/books/${id}`, {method: 'DELETE'});
-          alert("Deleted!");
-          window.location.assign("http://localhost:3001");
+          alert("Book was removed");
+          window.location.assign("http://localhost:3001/books");
           return res.json();
         } else {
-          alert("Nothing was deleted!");
-          window.location.assign("http://localhost:3001");
+          alert("Nothing was removed");
+          window.location.assign("http://localhost:3001/books");
         }
       } catch (e) {
         alert(e);
@@ -37,7 +36,7 @@ export default {
 <template>
   <div class="container mx-auto mt-4">
   <div class="row">
-    <div class="col-md-3 pt-4" v-for="book in books" :key="book.id">
+    <div class="col-md-3 pt-4" v-for="book in books">
       <div class="card text-center align-items-center" style="width: auto; height: auto;">
         <img :src="book.image" class="card-img-top" style="width: 300px; height: 500px;" alt="...">
         <div class="card-body">
